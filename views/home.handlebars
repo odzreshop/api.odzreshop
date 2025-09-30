@@ -1,0 +1,46 @@
+{{#each endpoints}}
+<div class="endpoint-container">
+    <div class="endpoint-header">
+         <span class="method get">GET</span>
+         <span class="path">{{this.name}}</span>
+         <div class="arrow-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </div>
+    </div>
+    <div class="endpoint-details">
+        <div class="field-container">
+            <label>Request URL</label>
+            <div class="input-group">
+                <input type="text" class="request-url" data-base-url="{{../baseUrl}}{{this.path}}" value="{{../baseUrl}}{{this.path}}" readonly>
+                <button class="copy-btn">
+                    <svg class="icon-copy" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                </button>
+            </div>
+        </div>
+        {{#each this.queries}}
+        <div class="field-container">
+            <label>{{this.name}}</label>
+            <input type="text" class="query-input" data-param="{{this.name}}" placeholder="Contoh: {{this.contoh}}">
+        </div>
+        {{/each}}
+        <button class="execute-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L20.49 2"></path><path d="M20.49 15a9 9 0 0 1-14.85 3.36L3.51 22"></path></svg>
+            Execute
+        </button>
+        <div class="result-container">
+            <label>Result</label>
+            <div class="result-box">
+                <div class="loader-wrapper">
+                    <div class="loader">
+                        <span></span><span></span><span></span>
+                    </div>
+                </div>
+                <pre><code class="result-json"></code></pre>
+                <button class="copy-result-btn">
+                     <svg class="icon-copy" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+{{/each}}
